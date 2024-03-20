@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+{% block main-content %}
+
+<section>
+
+
+
+
+        <!-- Register -->
+        <div class="user signup">
+          <div class="form-box">
+
+              <form action="" method="post" novalidate class="registerform">
+                 {% if messages %}
+              <ul class="messages">
+                 {% for message in messages %}
+                 <p>{{ message }}</p>
+                 {% endfor %}
+              </ul>
+                 {% endif %}
+                 {{form.errors}}
+                 {% csrf_token %}
+                <div class="form-control">
+                 <h2>Welcome!</h2>
+                <p class="ww ">It's good to have you.</p>
+                  <div class="form_item">
+                <span class="form_label">Username :</span>
+                   {{form.username}}
+                 </div>
+                <div class="form_item">
+               <span class="form_label">Email :</span>
+             {{form.email}}
+            </div>
+
+    <div class="form_item">
+        <span class="form_label">Password :</span>
+    {{form.password1}}
+    </div>
+    <div class="form_item">
+        <span class="form_label">Confirm Password : </span>
+    {{form.password2}}
+    </div>
+
+
+                <input type="Submit" value="Register" />
+                 <a class="cc" href="{% url 'login' %}">Login now</a>
+              </div>
+              <div class="form-control">
+                <p>Or continue with</p>
+                <div class="icons">
+                  <div class="icon">
+                    <img src="{% static 'images/login/search.svg' %}" alt="" />
+                  </div>
+                  <div class="icon">
+                    <img src="{% static 'images/login/apple.svg' %}" alt="" />
+                  </div>
+                  <div class="icon">
+                    <img src="{% static 'images/login/facebook.svg' %}" alt="" />
+                  </div>
+                  <div class="icon">
+                    <img src="{% static 'images/login/github.svg' %}" alt="" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="img-box">
+            <img src="{% static 'images/login/trial.svg' %}" alt="" />
+          </div>
+        </div>
+    </section>
+
+{% endblock main-content %}

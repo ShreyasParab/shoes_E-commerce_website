@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+{% block main-content %}
+<div class="container8">
+    <div class="title">Address</div>
+    <div class="addresscontent">
+
+        {% for ad in add %}
+     <div class="card1">
+      <div class="card-body">
+       <h3>Address 1 {{forloop.counter}}</h3>
+       <p>Name: {{ad.name}}</p>
+       <p>Locality:{{ad.locality}} </p>
+       <p>City:{{ad.city}} </p>
+       <p>State: {{ad.state}}</p>
+       <p>Zipcode: {{ad.zipcode}}</p>
+      </div>
+     </div>
+        {% endfor %}
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock main-content %}

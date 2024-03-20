@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+{% block main-content %}
+<!--Banner Slider-->
+
+ <section class="blog" id="blog">
+            <h1 class="heading">Team <span>Weblog</span></h1>
+            <div class="box-container">
+                <div class="box">
+                    <img src="{% static 'images/team/1.png' %}" alt="">
+                    <h3>Victory Redefined</h3>
+                    <p>
+                        “Victory Redefined means sharing the spotlight and valuing people for who they are.
+                        When we appreciate, value and trust each other,
+                        that's when we get the best out of everyone.”
+                                                     -Megan Rapinoe
+                    </p>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'images/team/2.png' %}" alt="">
+                    <h3> Moves Become Movements</h3>
+                    <p>
+                        “Every little moment that people add continues the movement and the momentum.”
+                                                     -Renee Montgomery
+                    </p>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa fa-star-half-o"></i>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="{% static 'images/team/3.png' %}" alt="">
+                    <h3>The Beautiful Game</h3>
+                    <p>
+                        “If I meet someone and they like footy, they like music,
+                         or we like the same team — we’re gonna get along.
+                         There’s nothing else to it.”
+                                                        -AntsLive
+
+                    </p>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- End 2nd Product Slider -->
+{% endblock main-content %}

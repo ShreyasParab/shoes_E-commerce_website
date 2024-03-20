@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+{% block main-content %}
+<section class="featured" >
+    <h1 style="font-size: 25px;text-align: center;">orders</h1>
+<div class="orders">
+
+           {% for op in order_placed %}
+            <div class="order">
+                <div class="image">
+                     <img src="{{op.product.product_image.url}}">
+                </div>
+                <div class="namePrice">
+                    <ul>
+                        <li class="title">
+                            <h1 class="label">Product:{{op.product.title}}</h1>
+                        </li>
+
+                        <li class="address">
+                            <h1 class="label">Quantity:{{op.quantity}}</h1>
+
+                        </li>
+
+                        <li class="email">
+                            <h1 class="label">Price:{{op.total_cost}}</h1>
+
+                        </li>
+
+                        <li class="site">
+                            <h1 class="label">Status:{{op.status}}</h1>
+
+                        </li>
+                    </ul>
+
+
+            </div>
+
+
+
+
+        </div>
+    {% endfor %}
+    </div></section>
+{% endblock main-content %}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cart{% endblock title %}
+{% block main-content %}
+
+<div class="wrapper">
+
+        <div class="wrapper_content">
+            <div class="header_title">
+                <div class="title">
+                    MY SHOPPING CART :
+                </div>
+
+
+            </div>
+            {%  for cart in carts %}
+            <div class="product_wrap">
+                <div class="product_info">
+                    <div class="product_img">
+                        <img src="{{ cart.product.product_image.url }}" width="200px" height="200px">
+                    </div>
+                    <div class="product_data">
+                        <div class="description">
+                            <div class="main_header">
+                                {{ cart.product.title }}
+                            </div>
+                            <div class="sub_header">
+                                Description:{{ cart.product.description }}
+                            </div>
+                        </div>
+                                           <div class="cartQuantity">
+                    <label>Quantity:</label>
+                    <a class="minus-cart" pid="{{cart.product.id}}"><i class="fa-solid fa-square-minus"></i></a>
+                        <span>{{ cart.quantity }}</span>
+                    <a class="plus-cart" pid="{{cart.product.id}}"><i class="fa-solid fa-square-plus"></i></a>
+                    </div>
+
+                        <div class="price">
+                            <div class="normal_price">Rs.{{ cart.product.selling_price }}</div>
+                        </div>
+                    </div>
+
+                    <div class="cartRemove">
+                    <a href="#" class="remove-cart"  pid="{{cart.product.id}}">Remove item </a>
+
+                   </div>
+                </div>
+                </div>
+{% endfor %}
+            </div>
+
+
+
+        <div class="wrapper_amount">
+            <div class="header_title">
+                <div class="title">
+                    TOTAL PRICE DETAILS:
+                </div>
+
+            </div>
+            <div class="price_details">
+
+                <div  class="item">
+                    <p style="color: black;">Order Total :</p>
+                    <p style="color: black;"><span id="amount"> Rs. {{amount}} </span></p>
+                </div>
+                <div class="item">
+                    <p style="color: black;">Delivery Charges :</p>
+                    <p style="color: black;"><span style="text-decoration: line-through;"></span>Rs. 70.00 <span class="green"></span></p>
+                </div>
+
+                <div  class="total">
+                    <p style="color: black;">Total :</p>
+                    <p style="color: black;" id="totalamount">Rs.{{total_amount}}</p>
+                </div>
+            </div>
+            <div class="checkout">
+                <a href="{% url 'checkout' %}" role="button" class="checkout_btn">Place Order</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock main-content %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+{% block main-content %}
+<section class="featured" id="fearured">
+            <h1 class="heading">New Product</h1>
+
+            <div class="row">
+                <div class="image-container">
+                    <div class="big-image">
+                        <img src="{{product.product_image.url}}" alt="" class="big-image-3">
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>{{product.title}}</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>{{product.description}}
+                    </p>
+                    <div class="price">Rs {{product.selling_price}}</div>
+                     {% if request.user.is_authenticated %}
+                        {% if item_already %}
+                         <a href="{% url 'showcart' %}" class="prod_button1"> View in cart </a>
+                        {% else %}
+                             <form action="/cartview" class="productform">
+                            <input type="hidden" name="prod_id" id="prod_id" value="{{product.id}}">
+                            <button type="submit" class="prod_button1"> Add to cart </button>
+                                 <a href="{% url 'checkout' %}" class="btn">buy now</a>
+</form>
+                        {% endif %}
+                    {% else %}
+                          <a href="{% url 'login' %}" class="btn">buy now</a>
+                    {% endif %}
+
+<!--                     {% if not request.user.is_authenticated %}-->
+<!--                    <form name="cartform" action="/cartview">-->
+<!--                    <input type="hidden" name="prod_id" id="prod_id" value="{{product.id}}">-->
+<!--                  <button type="submit" class="btn1"> Add to cart </button>-->
+<!--                    </form>-->
+<!--                    {% endif %}-->
+
+
+                </div>
+            </div>
+        </section>
+{% endblock main-content %}

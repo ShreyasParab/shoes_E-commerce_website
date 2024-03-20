@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+{% block main-content %}
+<section class="featured" >
+<div class="heading">
+    <h2>Welcome {{user.username}}</h2>
+    <h3 style="font-size: 25px;text-align: center;"><a class="gigi"  href="{% url 'address' %}">address</a></h3></div>
+
+<div class="container">
+
+    <div class="title">Profile </div>
+    <div class="content">
+      <form action="#" method="post" class="profileform">
+           {% csrf_token %}
+           {% if messages %}
+      <ul class="messages">
+           {% for message in messages %}
+           <p>{{ message }}</p>
+           {% endfor %}
+      </ul>
+        {% endif %}
+             {{form.errors}}
+
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+<!--            <input type="text" placeholder="Enter your name" required>-->
+            {{form.name}}
+          </div>
+          <div class="input-box">
+            <span class="details">Locality </span>
+<!--            <input type="text" placeholder="Enter your address" required>-->
+            {{form.locality}}
+          </div>
+          <div class="input-box">
+            <span class="details">City </span>
+<!--            <input type="text" placeholder="Enter your address 2" required>-->
+            {{form.city}}
+          </div>
+          <div class="input-box">
+            <span class="details">Zipcode</span>
+
+            {{form.zipcode}}
+          </div>
+          <div class="input-box">
+            <span class="details">State</span>
+<!--            <input type="text" placeholder="Enter your state" required>-->
+            {{form.state}}
+          </div>
+
+        </div>
+         <div class="button1">
+          <input type="submit" value="Submit">
+        </div>
+        <div class="button1">
+          <input type="submit" value="Reset">
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock main-content %}

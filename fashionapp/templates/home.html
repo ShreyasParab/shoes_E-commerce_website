@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion ecommerce website</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome.min.css' %}">
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	  <script src="https://kit.fontawesome.com/508703c143.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+</head>
+<body><header>
+            <div id="menu-bar" class="fa fa-bars"></div>
+            <a href="#" class="logo">MIKE STORE</a>
+            <nav class="navbar">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'product' %}">Product</a>
+                    {% if request.user.is_authenticated %}
+<!--                 <div class="dropdown">-->
+<!--      <button class="button">{{user.username}}</button>-->
+
+<!--      <div class="content">-->
+<!--        <a href="{% url 'logout' %}">Log Out</a>-->
+<!--        <a href="{% url 'orders' %}">Order</a>-->
+<!--        <a href="{% url 'profile' %}">Profile</a>-->
+<!--        <a href="{% url 'changepassword' %}">Change Password</a>-->
+<!--      </div>-->
+<li class="nav-item c">
+                        <a href="#" class="item-link a">{{user.username}}</a>
+                    <!-- Dropdown Menu -->
+                    <div  class="rom" id="drop-down">
+                        <a href="{% url 'logout' %}" class="clinks">Log Out</a>
+                        <a href="{% url 'orders' %}" class="clinks">Order</a>
+                        <a href="{% url 'profile' %}" class="clinks">Profile</a>
+                        <a href="{% url 'changepassword' %}" class="clinks">Change Password</a>
+                    </div>
+                </li>
+
+
+                 </div>
+              {% endif %}</nav>
+            <div class="icons">
+<!--                <a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i></a>-->
+                 <a href="{% url 'showcart' %}"><i class="fa fa-shopping-cart"><sup class="cartSup"> {{totalitem}} </sup></i></a>
+                <a href="{% url 'login' %}"><i class="fa fa-user"></i></a>
+            </div>
+        </header>
+        <!--end header-->
+        <section class="home" id="home">
+            <div class="slide-container active">
+                <div class="slide">
+                    <div class="content">
+                        <span>Mike  Shoes</span>
+                        <h3>Mike Metcon Shoes</h3>
+                        <p>
+                            Take Our Interactive Shoe Finder Quiz to Find Your Perfect Match!
+                        </p>
+
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'images/slide/1.png' %}" class="shoe">
+                    </div>
+                </div>
+            </div>
+            <div class="slide-container">
+                <div class="slide">
+                    <div class="content">
+                        <span>Mike  Shoes</span>
+                        <h3>Mike Metcon Shoes</h3>
+                        <p>
+                            Take Our Interactive Shoe Finder Quiz to Find Your Perfect Match!
+                        </p>
+
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'images/slide/2.png' %}" class="shoe">
+                    </div>
+                </div>
+            </div>
+            <div class="slide-container">
+                <div class="slide">
+                    <div class="content">
+                        <span>Mike  Shoes</span>
+                        <h3>Mike Metcon Shoes</h3>
+                        <p>
+                            Take Our Interactive Shoe Finder Quiz to Find Your Perfect Match!
+                        </p>
+
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'images/slide/3.png' %}" class="shoe">
+                    </div>
+                </div>
+            </div>
+            <div class="slide-container">
+                <div class="slide">
+                    <div class="content">
+                        <span>Mike  Shoes</span>
+                        <h3>Mike Metcon Shoes</h3>
+                        <p>
+                            Take Our Interactive Shoe Finder Quiz to Find Your Perfect Match!
+                        </p>
+
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'images/slide/4.png' %}" class="shoe">
+                    </div>
+                </div>
+            </div>
+
+            <div id="prev" class="fa fa-angle-left" onclick="prev();"></div>
+            <div id="next" class="fa fa-angle-right" onclick="next();"></div>
+        </section>
+        <!--end home-->
+
+
+
+ <div class="wrapper1">
+
+     <div class="blank">
+    <div class="carousel owl-carousel">
+     {% for s in shoes %}
+
+			<div class="card" id="1">
+                <a href="{% url 'productdetail' s.id %}"><img class="carousel-item__img" src="{{s.product_image.url}}"></a>
+
+				<div class="info">
+					<a><h3>{{s.title}}</h3></a>
+
+					<strong class="price">&nbsp;Rs. {{s.selling_price }}/-</strong>
+				</div>
+			</div>
+
+            {% endfor %}
+    </div>
+  </div></div>
+
+  <script>
+    $(".carousel").owlCarousel({
+      loop: true,
+      margin: 25,
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      nav: true,
+      navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 2,
+        },
+        1000: {
+          items: 6,
+        },
+      }
+    })
+  </script>
+
+
+
+
+
+<!--=============== Footer ===============-->
+
+ <footer>
+        <div class="container1">
+            <div class="row">
+                  <div class="col" id="company">
+                      <img src="images/logo.png" alt="" class="logo">
+                      <p>
+                        We are specialized in Shoes designings, make your business a brand.
+                        Try our premium services.
+                      </p>
+                      <div class="social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                      </div>
+                  </div>
+
+
+                  <div class="col" id="services">
+                     <h3>Services</h3>
+                     <div class="links">
+                        <a href="#">Illustration</a>
+                        <a href="#">Creatives</a>
+                        <a href="#">color Design</a>
+                        <a href="#">Custom Design</a>
+                     </div>
+                  </div>
+
+                  <div class="col" id="useful-links">
+                     <h3>Links</h3>
+                     <div class="links">
+                        <a href="#">About</a>
+                        <a href="#">Services</a>
+                        <a href="#">Our Policy</a>
+                        <a href="#">Help</a>
+                     </div>
+                  </div>
+
+                  <div class="col" id="contact">
+                      <h3>Contact</h3>
+                      <div class="contact-details">
+                         <i class="fa fa-location"></i>
+                         <p>MH07,SINDHUDURG, <br> MAHAREATRA, INDIA</p>
+                      </div>
+                      <div class="contact-details">
+                         <i class="fa fa-phone"></i>
+                         <p>+91 8010192312</p>
+                      </div>
+                  </div>
+            </div>
+
+
+
+        </div>
+     </footer>
+
+
+
+<script src="{% static 'js/script.js' %}"></script>
+
+
+
+    </body>
+</html>
+
